@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isak Gulaker – IT-student</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f9f8f5;
+    color: #1a1a18;
+    min-height: 100vh;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #1a1a18;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    color: #5f5e5a;
+  }
+
+  .nav-links a:hover { color: #1a1a18; }
+
+  /* HERO */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5f5e5a;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 100px;
+    padding: 4px 14px;
+    width: fit-content;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 7vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #1a1a18;
+  }
+
+  h1 .accent { color: #993556; }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #5f5e5a;
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .btn:hover { opacity: 0.82; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn-primary { background: #1a1a18; color: #f9f8f5; border: none; }
+  .btn-outline { background: transparent; color: #1a1a18; border: 0.5px solid #888780; }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .divider hr { border: none; border-top: 0.5px solid #d3d1c7; }
+
+  /* SECTIONS */
+  section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 32px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888780;
+    margin-bottom: 28px;
+  }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #2c2c2a;
+    max-width: 580px;
+  }
+  .about-text p + p { margin-top: 16px; }
+
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .skill-chip {
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    background: #fff;
+    border: 0.5px solid #d3d1c7;
+    color: #444441;
+    transition: border-color 0.15s;
+  }
+  .skill-chip:hover { border-color: #888780; }
+
+  .skill-chip.highlight {
+    background: #fbeaf0;
+    border-color: #f4c0d1;
+    color: #72243e;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .project-card {
+    background: #fff;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 16px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .project-card:hover { border-color: #888780; transform: translateY(-2px); }
+
+  .project-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .icon-pink  { background: #fbeaf0; }
+  .icon-blue  { background: #e6f1fb; }
+  .icon-green { background: #eaf3de; }
+  .icon-amber { background: #faeeda; }
+
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #1a1a18;
+  }
+
+  .project-meta {
+    font-size: 12px;
+    color: #993556;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: #5f5e5a;
+    line-height: 1.65;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: #f1efe8;
+    color: #5f5e5a;
+  }
+
+  /* VIDEO */
+  .video-card {
+    background: #fff;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f1efe8;
+    border: 0.5px dashed #b4b2a9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #888780;
+    font-size: 14px;
+  }
+
+  /* Video iframe – swap this in when you have the link */
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .play-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    border: 0.5px solid #d3d1c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-note {
+    font-size: 14px;
+    color: #5f5e5a;
+    line-height: 1.65;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .stat-card {
+    background: #fff;
+    border: 0.5px solid #d3d1c7;
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #993556;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #888780;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 32px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-top: 0.5px solid #d3d1c7;
+  }
+
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #1a1a18;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .footer-note { font-size: 13px; color: #888780; }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: #5f5e5a;
+  }
+  .footer-links a:hover { color: #1a1a18; }
+
+  @media (max-width: 520px) {
+    .hero, section, nav { padding-left: 20px; padding-right: 20px; }
+    .divider { padding: 0 20px; }
+    footer { padding: 32px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Isak Gulaker</span>
+  <div class="nav-links">
+    <a href="#om">Om meg</a>
+    <a href="#prosjekter">Prosjekter</a>
+    <a href="#video">Video</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="tag">IT-student · UiA · 2. år · Kristiansand</span>
+  <h1>Hei, jeg er<br><span class="accent">Isak Gulaker</span></h1>
+  <p class="hero-sub">
+    Andreårsstudent i IT og informasjonssystemer ved UiA. Bygger apper som faktisk brukes – 
+    og er på jakt etter en praksisplass der teknologi møter forretning.
+  </p>
+  <div class="cta-row">
+    <a href="https://www.linkedin.com/in/isak-gulaker-8b53423b0/" target="_blank" class="btn btn-primary">LinkedIn →</a>
+    <a href="#video" class="btn btn-outline">Se introduksjonsvideo</a>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- OM MEG -->
+<section id="om">
+  <p class="section-label">Om meg</p>
+
+  <div class="about-text">
+    <p>
+      Jeg er andreårsstudent ved UiA med karaktersnitt B og sterk interesse for 
+      krysningspunktet mellom teknologi og forretning. 
+      Jeg trives like godt med kode som med strategi, og motiveres av å bygge løsninger 
+      som faktisk skaper verdi for brukerne.
+    </p>
+    <p>
+      Erfaringen fra apotek og elektronikkbutikk har gitt meg et realistisk bilde av 
+      hvordan IT-systemer fungerer og feiler i praksis – noe jeg tar med meg inn i 
+      studiet og prosjektene mine. Planlegger videre master i cybersikkerhetsledelse etter endt bachelor.
+    </p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-number">Topp 200</div>
+      <div class="stat-label">App Store-plassering for Teori1</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">B</div>
+      <div class="stat-label">Karaktersnitt (3A, 4B av 10 emner)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2027</div>
+      <div class="stat-label">Ferdig bachelor, deretter master</div>
+    </div>
+  </div>
+
+  <div class="skills-row">
+    <span class="skill-chip highlight">Swift & SwiftUI</span>
+    <span class="skill-chip highlight">App Store-lansering</span>
+    <span class="skill-chip highlight">iOS-utvikling</span>
+    <span class="skill-chip">C# / .NET</span>
+    <span class="skill-chip">MySQL / MariaDB</span>
+    <span class="skill-chip">Docker</span>
+    <span class="skill-chip">Git & GitHub</span>
+    <span class="skill-chip">Systemanalyse</span>
+    <span class="skill-chip">Prosjektstyring</span>
+    <span class="skill-chip">Risikostyring (CIA)</span>
+    <span class="skill-chip">Zero Trust / NIST</span>
+    <span class="skill-chip">LLM & prompt design</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- PROSJEKTER -->
+<section id="prosjekter">
+  <p class="section-label">Prosjekter</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon icon-pink">🚗</div>
+      <p class="project-meta">Lansert jan 2026 · App Store</p>
+      <p class="project-title">Teori1</p>
+      <p class="project-desc">
+        En norsk teoriprøve-app for iOS jeg har bygget, designet og lansert selv. 
+        Jevnlig på topp-200 i App Store med daglige nedlastninger. 
+        Ansvar for hele kjeden: utvikling, UI/UX, analyse og iterasjon.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Swift</span>
+        <span class="project-tag">SwiftUI</span>
+        <span class="project-tag">iOS 17+</span>
+        <span class="project-tag">App Store</span>
+        <span class="project-tag">UX/UI</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon icon-blue">🔒</div>
+      <p class="project-meta">UiA · IS 214</p>
+      <p class="project-title">Informasjonssikkerhet</p>
+      <p class="project-desc">
+        Studert og anvendt rammeverk som NIST SP 800-207, Zero Trust-arkitektur, 
+        risikostyring og defense-in-depth. God forståelse av CIA-triaden og 
+        praktisk risikovurdering.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Zero Trust</span>
+        <span class="project-tag">NIST</span>
+        <span class="project-tag">Risikoanalyse</span>
+        <span class="project-tag">ISO 27001</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon icon-amber">💊</div>
+      <p class="project-meta">Vitus Apotek · 2024–nå</p>
+      <p class="project-title">IT i praksis</p>
+      <p class="project-desc">
+        Deltatt i utrulling av nytt fagsystem (Aposys) i apotek. 
+        Lært på kroppen hva som skjer når IT-systemer møter – eller ikke møter – 
+        brukerens faktiske behov i en travel driftshverdag.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Systemutrulling</span>
+        <span class="project-tag">Brukeradopsjon</span>
+        <span class="project-tag">Driftserfaring</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- VIDEO -->
+<section id="video">
+  <p class="section-label">Introduksjonsvideo</p>
+  <div class="video-card">
+
+    <!-- 
+      NÅR DU HAR LAGET VIDEO:
+      Bytt ut hele .video-wrapper div-en under med:
+      
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/DIN_VIDEO_ID" allowfullscreen></iframe>
+      </div>
+      
+      eller for Vimeo:
+      <div class="video-wrapper">
+        <iframe src="https://player.vimeo.com/video/DIN_VIDEO_ID" allowfullscreen></iframe>
+      </div>
+    -->
+
+    <div class="video-wrapper">
+      <div class="play-circle">
+        <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+          <path d="M1 1L13 8L1 15V1Z" fill="#888780"/>
+        </svg>
+      </div>
+      <span>Video legges til her</span>
+    </div>
+
+    <p class="video-note">
+      En kort introduksjon av meg selv – hvem jeg er, hva jeg brenner for, 
+      og hva jeg kan bidra med i praksis.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Isak Gulaker</span>
+  <div class="footer-right">
+    <span class="footer-note">IT-student · UiA · Kristiansand</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/isak-gulaker-8b53423b0/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/IsakJG" target="_blank">GitHub</a>
+      <a href="mailto:isakjgulaker@hotmail.com">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

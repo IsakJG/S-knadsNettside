@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Isak Gulaker – IT-student</title>
+<title>Isak Gulaker – IT-student & utvikler</title>
+ 
+<!-- Meta for nice link previews on LinkedIn / Slack / iMessage -->
+<meta name="description" content="Andreårs IT-student ved UiA. Utvikler av Teori1 (topp-200 i App Store). På jakt etter praksisplass.">
+<meta property="og:title" content="Isak Gulaker – IT-student & utvikler">
+<meta property="og:description" content="Andreårs IT-student ved UiA. Utvikler av Teori1 (topp-200 i App Store). På jakt etter praksisplass.">
+<meta property="og:type" content="website">
+ 
+<!-- Inline favicon (rosa "I" – matcher Teori1-merkevaren) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23993556'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' fill='white' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+ 
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,7 +89,7 @@
     font-size: 17px;
     color: #5f5e5a;
     line-height: 1.7;
-    max-width: 500px;
+    max-width: 540px;
   }
  
   .cta-row {
@@ -256,17 +266,6 @@
     border-radius: 12px;
   }
  
-  .play-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #fff;
-    border: 0.5px solid #d3d1c7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
- 
   .video-note {
     font-size: 14px;
     color: #5f5e5a;
@@ -342,6 +341,9 @@
     .hero, section, nav { padding-left: 20px; padding-right: 20px; }
     .divider { padding: 0 20px; }
     footer { padding: 32px 20px 48px; }
+    .footer-right { align-items: flex-start; }
+    nav { gap: 12px; }
+    .nav-links { gap: 16px; }
   }
 </style>
 </head>
@@ -361,11 +363,13 @@
   <span class="tag">IT-student · UiA · 2. år · Kristiansand</span>
   <h1>Hei, jeg er<br><span class="accent">Isak Gulaker</span></h1>
   <p class="hero-sub">
-    Andreårsstudent i IT og informasjonssystemer ved UiA. Bygger apper som faktisk brukes – 
-    og er på jakt etter en praksisplass der teknologi møter forretning.
+    Andreårsstudent i IT og informasjonssystemer ved UiA. Utvikler, designer og drifter Teori1 –
+    en iOS-app som ligger jevnlig på topp-200 i App Store. På jakt etter en praksisplass der jeg
+    kan gå i dybden, bygge ekte løsninger og lære av et sterkt fagmiljø.
   </p>
   <div class="cta-row">
     <a href="https://www.linkedin.com/in/isak-gulaker-8b53423b0/" target="_blank" class="btn btn-primary">LinkedIn →</a>
+    <a href="https://github.com/IsakJG" target="_blank" class="btn btn-outline">GitHub</a>
     <a href="#video" class="btn btn-outline">Se introduksjonsvideo</a>
   </div>
 </div>
@@ -378,15 +382,15 @@
  
   <div class="about-text">
     <p>
-      Jeg er andreårsstudent ved UiA med karaktersnitt B og sterk interesse for 
-      krysningspunktet mellom teknologi og forretning. 
-      Jeg trives like godt med kode som med strategi, og motiveres av å bygge løsninger 
-      som faktisk skaper verdi for brukerne.
+      Jeg er andreårsstudent ved UiA med karaktersnitt B og en solid lyst til å bli en god utvikler.
+      Det jeg liker best er å ta tak i et reelt problem, dykke ned i hvordan ting henger sammen –
+      kode, data, API-er, integrasjoner – og bygge noe som faktisk funker for en bruker.
     </p>
     <p>
-      Erfaringen fra apotek og elektronikkbutikk har gitt meg et realistisk bilde av 
-      hvordan IT-systemer fungerer og feiler i praksis – noe jeg tar med meg inn i 
-      studiet og prosjektene mine. Planlegger videre master i cybersikkerhetsledelse etter endt bachelor.
+      Erfaringen fra apotek og kundekonsulentjobber har gitt meg et realistisk bilde av hvordan
+      IT-systemer fungerer og feiler i drift. Jeg er vant til å ta eierskap til egne prosjekter,
+      bruker AI aktivt som verktøy for å lære og bygge raskere, og planlegger master i
+      cybersikkerhetsledelse etter endt bachelor.
     </p>
   </div>
  
@@ -410,7 +414,9 @@
     <span class="skill-chip highlight">App Store-lansering</span>
     <span class="skill-chip highlight">iOS-utvikling</span>
     <span class="skill-chip">C# / .NET</span>
+    <span class="skill-chip">JavaScript</span>
     <span class="skill-chip">MySQL / MariaDB</span>
+    <span class="skill-chip">REST API-er</span>
     <span class="skill-chip">Docker</span>
     <span class="skill-chip">Git & GitHub</span>
     <span class="skill-chip">Systemanalyse</span>
@@ -425,7 +431,7 @@
  
 <!-- PROSJEKTER -->
 <section id="prosjekter">
-  <p class="section-label">Prosjekter</p>
+  <p class="section-label">Prosjekter & erfaring</p>
   <div class="projects-grid">
  
     <div class="project-card">
@@ -433,9 +439,10 @@
       <p class="project-meta">Lansert jan 2026 · App Store</p>
       <p class="project-title">Teori1</p>
       <p class="project-desc">
-        En norsk teoriprøve-app for iOS jeg har bygget, designet og lansert selv. 
-        Jevnlig på topp-200 i App Store med daglige nedlastninger. 
-        Ansvar for hele kjeden: utvikling, UI/UX, analyse og iterasjon.
+        En norsk teoriprøve-app for iOS jeg har bygget, designet og lansert selv. Jevnlig på
+        topp-200 i App Store med daglige nedlastninger. Ansvar for hele kjeden: utvikling,
+        UI/UX, App Store-lansering, brukerdata og iterasjon. AI brukt aktivt gjennom hele
+        prosjektet som sparringspartner og for å akselerere læring.
       </p>
       <div class="project-tags">
         <span class="project-tag">Swift</span>
@@ -443,17 +450,35 @@
         <span class="project-tag">iOS 17+</span>
         <span class="project-tag">App Store</span>
         <span class="project-tag">UX/UI</span>
+        <span class="project-tag">AI-drevet utvikling</span>
+      </div>
+    </div>
+ 
+    <div class="project-card">
+      <div class="project-icon icon-green">⚙️</div>
+      <p class="project-meta">UiA · IS-202 / IS-201</p>
+      <p class="project-title">Programmering & databaser</p>
+      <p class="project-desc">
+        Bygget webapplikasjoner i programmeringsprosjektet (IS-202) med JavaScript, og
+        modellert relasjonsdatabaser i IS-201. God forståelse for hvordan kode, data og
+        API-er henger sammen i et ekte system – og for å feilsøke når ting ikke gjør det.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">SQL</span>
+        <span class="project-tag">Datamodellering</span>
+        <span class="project-tag">REST</span>
       </div>
     </div>
  
     <div class="project-card">
       <div class="project-icon icon-blue">🔒</div>
-      <p class="project-meta">UiA · IS 214</p>
+      <p class="project-meta">UiA · IS-214</p>
       <p class="project-title">Informasjonssikkerhet</p>
       <p class="project-desc">
-        Studert og anvendt rammeverk som NIST SP 800-207, Zero Trust-arkitektur, 
-        risikostyring og defense-in-depth. God forståelse av CIA-triaden og 
-        praktisk risikovurdering.
+        Studert og anvendt rammeverk som NIST SP 800-207, Zero Trust-arkitektur,
+        risikostyring og defense-in-depth. Skrev en case-analyse av Norsk Hydro-angrepet
+        med asset- og impact assessment som rammeverk.
       </p>
       <div class="project-tags">
         <span class="project-tag">Zero Trust</span>
@@ -466,11 +491,11 @@
     <div class="project-card">
       <div class="project-icon icon-amber">💊</div>
       <p class="project-meta">Vitus Apotek · 2024–nå</p>
-      <p class="project-title">IT i praksis</p>
+      <p class="project-title">Aposys-utrullingen</p>
       <p class="project-desc">
-        Deltatt i utrulling av nytt fagsystem (Aposys) i apotek. 
-        Lært på kroppen hva som skjer når IT-systemer møter – eller ikke møter – 
-        brukerens faktiske behov i en travel driftshverdag.
+        Deltatt i utrulling av nytt fagsystem (Aposys) i apotek. Lært på kroppen hva som
+        skjer når IT-systemer møter – eller ikke møter – brukerens faktiske behov i en
+        travel driftshverdag. Denne erfaringen tar jeg med meg inn i alle prosjekter.
       </p>
       <div class="project-tags">
         <span class="project-tag">Systemutrulling</span>
@@ -489,18 +514,18 @@
   <p class="section-label">Introduksjonsvideo</p>
   <div class="video-card">
     <div class="video-wrapper">
-   <iframe 
-  src="https://www.youtube.com/embed/DtNRDQk9SAA?rel=0&modestbranding=1"
-  title="Introduksjonsvideo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
-  referrerpolicy="strict-origin-when-cross-origin">
-</iframe>
+      <iframe
+        src="https://www.youtube.com/embed/DtNRDQk9SAA?rel=0&modestbranding=1"
+        title="Introduksjonsvideo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
     </div>
     <p class="video-note">
-      En kort introduksjon av meg selv – hvem jeg er, hva jeg brenner for, 
-      og hva jeg kan bidra med i praksis.
+      En kort introduksjon av meg selv – hvem jeg er, hva jeg jobber med,
+      og hva jeg har lyst til å bidra med i en praksisperiode.
     </p>
   </div>
 </section>
